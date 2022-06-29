@@ -1,4 +1,4 @@
-package arrays;
+package searching_and_sorting;
 
 import java.util.Scanner;
 
