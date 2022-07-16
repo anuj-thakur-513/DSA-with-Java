@@ -10,42 +10,42 @@ public class QuickSort {
         System.out.println(Arrays.toString(arr));
     }
 
-    static int partition(int[] arr, int start, int end) {
-        int pivot = arr[start];
+    public static int partition(int[] input, int startIndex, int endIndex){
+        int pivot = input[startIndex];
         int count = 0;
-        for (int i = start + 1; i < end; i++) {
-            if (arr[i] <= pivot) {
+        for(int i=startIndex+1;i<=endIndex;i++){
+            if(input[i]<=pivot){
                 count++;
             }
         }
-        int pivotIndex = start + count;
-        arr[start] = arr[pivotIndex];
-        arr[pivotIndex] = pivot;
-        int i = start, j = end;
-        while (i < j) {
-            while (i <= end && arr[i] <= pivot) {
+        int pivotIndex = startIndex + count;
+        input[startIndex] = input[pivotIndex];
+        input[pivotIndex] = pivot;
+
+        int i = startIndex, j= endIndex;
+        while(i < j){
+            while(i <= endIndex && input[i] <= pivot){
                 i++;
             }
-            while (arr[j] > pivot) {
+            while(input[j] > pivot){
                 j--;
             }
-            if (i <= j){
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+            if(i<=j){
+                int temp = input[i];
+                input[i] = input[j];
+                input[j] = temp;
                 i++;
                 j--;
             }
         }
         return pivotIndex;
     }
-
-    static void quickSort(int[] arr, int start, int end) {
-        if (start >= end) {
+    public static void quickSort(int[] input, int startIndex, int endIndex){
+        if(startIndex >= endIndex){
             return;
         }
-        int partitionIndex = partition(arr, start, end);
-        quickSort(arr, start, partitionIndex - 1);
-        quickSort(arr, partitionIndex + 1, end);
+        int partitionIndex = partition(input, startIndex, endIndex);
+        quickSort(input, startIndex, partitionIndex - 1);
+        quickSort(input, partitionIndex+1, endIndex);
     }
 }
