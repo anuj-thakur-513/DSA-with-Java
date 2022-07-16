@@ -15,11 +15,9 @@ public class MergeSort {
             return;
         }
         int mid = input.length / 2;
-        int part1[] = new int[mid];
-        int part2[] = new int[input.length - mid];
-        for (int i = 0; i < mid; i++) {
-            part1[i] = input[i];
-        }
+        int[] part1 = new int[mid];
+        int[] part2 = new int[input.length - mid];
+        System.arraycopy(input, 0, part1, 0, mid);
         int k = 0;
         for (int i = mid; i < input.length; i++) {
             part2[k] = input[i];
@@ -30,7 +28,7 @@ public class MergeSort {
         merge(part1, part2, input);
     }
 
-    static void merge(int[] input1, int input2[], int[] output) {
+    static void merge(int[] input1, int[] input2, int[] output) {
         int i = 0, j = 0, k = 0;
         while (i < input1.length && j < input2.length) {
             if (input1[i] < input2[j]) {
