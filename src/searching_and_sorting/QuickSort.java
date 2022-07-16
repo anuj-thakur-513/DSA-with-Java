@@ -1,8 +1,13 @@
 package searching_and_sorting;
 
+import java.util.Arrays;
+
 public class QuickSort {
     public static void main(String[] args) {
-
+        int[] arr = {2, 6, 8, 5, 4, 3};
+        System.out.println(Arrays.toString(arr));
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
     }
 
     static int partition(int[] arr, int start, int end) {
