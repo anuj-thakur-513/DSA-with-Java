@@ -10,6 +10,7 @@ public class KeypadProblem {
         String[] ans = keypad(n);
         System.out.println(ans.length);
         System.out.println(Arrays.toString(ans));
+        printKeypad(n);
     }
 
     static String[] getString(int d) {
@@ -56,5 +57,21 @@ public class KeypadProblem {
             }
         }
         return output;
+    }
+
+    static void printKeypad(int input){
+        printKeypad(input, "");
+    }
+
+    static void printKeypad(int n, String output){
+        if (n == 0){
+            System.out.println(output);
+            return;
+        }
+
+        String[] singleDigitOutput = getString(n % 10);
+        for (String s : singleDigitOutput) {
+            printKeypad(n / 10, s + output);
+        }
     }
 }
