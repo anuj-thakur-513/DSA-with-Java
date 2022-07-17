@@ -1,13 +1,20 @@
 package recursion;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class KeypadProblem {
     public static void main(String[] args) {
-
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        String[] ans = keypad(n);
+        System.out.println(ans.length);
+        System.out.println(Arrays.toString(ans));
     }
 
     static String[] getString(int d) {
         if (d <= 1 || d > 10) {
-            System.exit(0);
+            return new String[]{""};
         }
         if (d == 2) {
             return new String[]{"a", "b", "c"};
@@ -37,7 +44,7 @@ public class KeypadProblem {
 
     static String[] keypad(int n){
         if (n == 0){
-            return new String[]{" "};
+            return new String[]{""};
         }
         String[] smallerNumberArray = keypad(n/10);
         String[] singleDigitOutput = getString(n%10);
