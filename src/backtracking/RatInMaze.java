@@ -2,7 +2,7 @@ package backtracking;
 
 public class RatInMaze {
     public static void main(String[] args) {
-        int[][] maze = {{1,1,0},{1,0,1},{0,1,1}};
+        int[][] maze = {{1,1,0},{0,1,0},{0,1,1}};
         boolean hasPath = ratInMaze(maze);
         System.out.println(hasPath);
     }
@@ -23,6 +23,12 @@ public class RatInMaze {
         path[i][j] = 1;
         // destination cell
         if (i == n - 1 && j == n - 1){
+            for (int k = 0; k < n; k++){
+                for (int l = 0; l < n; l++){
+                    System.out.print(path[k][l] + " ");
+                }
+                System.out.println();
+            }
             return true;
         }
 
