@@ -6,8 +6,9 @@ public class AppendLastToFirst {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Node<Integer> head = LinkedList.takeInput();
-
         int n = scanner.nextInt();
+        head = appendLastNToFirst(head, n);
+        LinkedList.printLL(head);
     }
 
     static Node<Integer> appendLastNToFirst(Node<Integer> head, int n){
