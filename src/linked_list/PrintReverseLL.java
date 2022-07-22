@@ -12,7 +12,7 @@ public class PrintReverseLL {
         LinkedList.printLL(head);
     }
 
-    // recursive approach
+    // recursive approach has more complexity
     static Node<Integer> printReverse(Node<Integer> head){
         if (head == null || head.next == null){
             return head;
