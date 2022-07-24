@@ -1,9 +1,15 @@
 package stack;
 
 public class StackUsingArray {
-    private final int[] data;
+    private int[] data;
     // index of topmost element of the stack
     private int topIndex;
+
+    private void doubleCapacity() {
+        int[] temp = data;
+        data = new int[2 * (temp.length)];
+        System.arraycopy(temp, 0, data, 0, temp.length);
+    }
 
     public StackUsingArray(int size) {
         data = new int[size];
@@ -12,10 +18,9 @@ public class StackUsingArray {
 
     public void push(int elem) {
         if (isFull()) {
-            System.out.println("Stack Overflow");
-        } else {
-            data[++topIndex] = elem;
+            doubleCapacity();
         }
+        data[++topIndex] = elem;
     }
 
     public int size() {
@@ -23,7 +28,7 @@ public class StackUsingArray {
     }
 
     public int top() {
-        if (isEmpty()){
+        if (isEmpty()) {
             System.out.println("Stack is empty");
             return -1;
         } else {
@@ -32,7 +37,7 @@ public class StackUsingArray {
     }
 
     public int pop() {
-        if (isEmpty()){
+        if (isEmpty()) {
             System.out.println("Stack underflow");
             return -1;
         } else {
