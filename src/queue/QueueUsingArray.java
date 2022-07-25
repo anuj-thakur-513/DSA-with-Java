@@ -1,5 +1,6 @@
 package queue;
 
+import java.util.Arrays;
 import java.util.Queue;
 
 public class QueueUsingArray {
@@ -30,9 +31,9 @@ public class QueueUsingArray {
         return size == 0;
     }
 
-    public void enqueue(int elem) throws QueueFullException {
+    public void enqueue(int elem){
         if (size == data.length){
-            throw new QueueFullException();
+            doubleCapacity();
         }
         if(size == 0){
             front = 0;
@@ -66,5 +67,14 @@ public class QueueUsingArray {
             rear = -1;
         }
         return temp;
+    }
+
+    private void doubleCapacity(){
+        int[] temp = data;
+        data = new int[2 * temp.length];
+        int index = 0;
+        for (int i = front; i < temp.length; i++){
+            data[index++] = temp[front];
+        }
     }
 }
