@@ -1,0 +1,66 @@
+package binary_tree;
+
+import java.util.Scanner;
+
+public class BinaryTreeUse {
+    public static void main(String[] args) {
+        BinaryTreeNode<Integer> root = takeInput(true, -1, true);
+        printTree(root);
+        System.out.println("Number of nodes in the tree: " + numNodes(root));
+    }
+
+    // method to print the tree
+    public static void printTree(BinaryTreeNode<Integer> root) {
+        // base case
+        if (root == null) {
+            return;
+        }
+
+        System.out.print(root.data + ":");
+        if (root.left != null) {
+            System.out.print("L" + root.left.data + " ");
+        }
+        if (root.right != null) {
+            System.out.print("R" + root.right.data);
+        }
+        System.out.println();
+        printTree(root.left);
+        printTree(root.right);
+    }
+
+    // method to get input of the tree
+    public static BinaryTreeNode<Integer> takeInput(boolean isRoot, int parentData, boolean isLeft){
+        if (isRoot) {
+            System.out.print("Enter root data: ");
+        } else {
+            if (isLeft) {
+                System.out.print("Enter left child of " + parentData + ": ");
+            } else {
+                System.out.print("Enter right child of " + parentData + ": ");
+            }
+        }
+        Scanner scanner = new Scanner(System.in);
+        int rootData = scanner.nextInt();
+
+        if (rootData == -1){
+            return null;
+        }
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(rootData);
+        BinaryTreeNode<Integer> leftChild = takeInput(false, rootData, true);
+        BinaryTreeNode<Integer> rightChild = takeInput(false, rootData, false);
+        root.left = leftChild;
+        root.right = rightChild;
+        return root;
+    }
+
+    // method to get the count of nodes
+    public static int numNodes(BinaryTreeNode<Integer> root){
+        if (root == null){
+            return 0;
+        }
+
+        int leftNodeCount = numNodes(root.left);
+        int rightNodeCount = numNodes(root.right);
+        return 1 + leftNodeCount + rightNodeCount;
+    }
+}
