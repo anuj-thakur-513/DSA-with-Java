@@ -7,6 +7,7 @@ public class BinaryTreeUse {
         BinaryTreeNode<Integer> root = takeInput(true, -1, true);
         printTree(root);
         System.out.println("Number of nodes in the tree: " + numNodes(root));
+        System.out.println("Largest data in the tree: " + LargestData.largest(root));
     }
 
     // method to print the tree
