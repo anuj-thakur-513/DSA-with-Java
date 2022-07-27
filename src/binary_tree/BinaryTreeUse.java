@@ -11,6 +11,7 @@ public class BinaryTreeUse {
         System.out.println("Height of the tree is: " + height(root));
         System.out.println("Number of leaf nodes: " + NumberOfLeafNodes.numLeaves(root));
         NodesAtDepthK.nodeAtK(root, 2);
+        System.out.print(BalancedBinaryTree.isBinaryTreeBalanced(root));
     }
 
     // method to print the tree
