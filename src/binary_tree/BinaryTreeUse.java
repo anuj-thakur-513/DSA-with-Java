@@ -8,6 +8,7 @@ public class BinaryTreeUse {
         printTree(root);
         System.out.println("Number of nodes in the tree: " + numNodes(root));
         System.out.println("Largest data in the tree: " + LargestData.largest(root));
+        System.out.println("Height of the tree is: " + height(root));
     }
 
     // method to print the tree
@@ -63,5 +64,14 @@ public class BinaryTreeUse {
         int leftNodeCount = numNodes(root.left);
         int rightNodeCount = numNodes(root.right);
         return 1 + leftNodeCount + rightNodeCount;
+    }
+
+    // method to get the height of the tree
+    public static int height(BinaryTreeNode<Integer> root){
+        if (root == null){
+            return 0;
+        }
+
+        return Math.max(height(root.left), height(root.right)) + 1;
     }
 }
