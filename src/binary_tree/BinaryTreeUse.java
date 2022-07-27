@@ -9,6 +9,7 @@ public class BinaryTreeUse {
         System.out.println("Number of nodes in the tree: " + numNodes(root));
         System.out.println("Largest data in the tree: " + LargestData.largest(root));
         System.out.println("Height of the tree is: " + height(root));
+        System.out.println("Number of leaf nodes: " + NumberOfLeafNodes.numLeaves(root));
     }
 
     // method to print the tree
