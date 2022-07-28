@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BinaryTreeUse {
     public static void main(String[] args) {
-        BinaryTreeNode<Integer> root = takeInput(true, -1, true);
+        BinaryTreeNode<Integer> root = LevelInputOfTree.levelInput();
         printTree(root);
         System.out.println("Number of nodes in the tree: " + numNodes(root));
         System.out.println("Largest data in the tree: " + LargestData.largest(root));
